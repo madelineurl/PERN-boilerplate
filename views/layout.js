@@ -17,13 +17,10 @@ module.exports = (content) => html`<!DOCTYPE html>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/wiki">wikistack</a>
+            <a class="navbar-brand" href="/wiki">movies</a>
           </div>
           <div id="nav-items" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-              <li><a href="/wiki/">index</a></li>
-              <li><a href="/wiki/add">write</a></li>
-              <li><a href="/users">users</a></li>
             </ul>
           </div>
         </div>
@@ -37,3 +34,7 @@ module.exports = (content) => html`<!DOCTYPE html>
       </div>
     </body>
   </html>`;
+
+  // <li><a href="/wiki/">index</a></li>
+  // <li><a href="/wiki/add">write</a></li>
+  // <li><a href="/users">users</a></li>
