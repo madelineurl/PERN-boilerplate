@@ -11,7 +11,7 @@ module.exports = app; // this line is only used to make testing easier.
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(require('./routes/movies'))
+app.use('/movies', require('./routes/movies'))
 
 // app.use((err, req, res, next) => {
 //   console.error(err.stack);

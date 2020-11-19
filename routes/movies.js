@@ -1,26 +1,21 @@
-const router = require('express').Router()
-const unirest = require("unirest");
+const router = require('express').Router();
+require('../secrets');
 
-// var req = unirest("GET", "https://unogs-unogs-v1.p.rapidapi.com/api.cgi");
 
-// req.headers({
-// 	"x-rapidapi-key": "SIGN-UP-FOR-KEY",
-// 	"x-rapidapi-host": "unogs-unogs-v1.p.rapidapi.com",
-// 	"useQueryString": true
-// });
-
-// req.end(function (res) {
-// 	if (res.error) throw new Error(res.error);
-
-// 	console.log(res.body);
-// });
-
-// GET /movies/search
-router.get('/search', async (req, res, next) => {
-  try {
-    //await api query
-  } catch (err) { next(err) }
-})
+//GET /movies/search
+// router.get('https://unogs-unogs-v1.p.rapidapi.com/api.cgi', async (req, res, next) => {
+//   try {
+//     const response = fetch("https://unogs-unogs-v1.p.rapidapi.com/api.cgi", {
+//       "method": "GET",
+//       "headers": {
+//         "x-rapidapi-key": process.env.MOVIE_API_KEY,
+//         "x-rapidapi-host": "unogs-unogs-v1.p.rapidapi.com"
+//       }
+//     })
+//     console.log(response)
+//     res.json(response)
+//   } catch (err) { next(err) }
+// })
 
 // post route for /movies/votes
 
