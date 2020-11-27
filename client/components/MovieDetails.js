@@ -12,7 +12,9 @@ class MovieDetails extends Component {
       Year: '',
       Director: '',
       Plot: '',
-      Poster: ''
+      Poster: '',
+      upvotes: 0,
+      downvotes: 0
     };
   }
 
@@ -28,9 +30,13 @@ class MovieDetails extends Component {
           'x-rapidapi-host': 'movie-database-imdb-alternative.p.rapidapi.com'
         }
       };
-      const response = await axios.request(options);
-      const { Title, Year, Director, Plot, Poster } = response.data;
-      this.setState({ Title, Year, Director, Plot, Poster });
+      const { data } = await axios.request(options);
+      const { Title, Year, Director, Plot, Poster } = data;
+      const dbResponse = await axios.get(`/movies/${Title}`);
+      console.log(dbResponse.data);
+      const {upvotes, downvotes} = dbResponse.data;
+
+      this.setState({ Title, Year, Director, Plot, Poster, upvotes, downvotes });
     } catch (err) {
       console.error(err);
     }
@@ -41,6 +47,8 @@ class MovieDetails extends Component {
       let title = this.state.Title;
       //title = title.toLowerCase().replace(' ', '-');
       await axios.post(`/movies/${title}/upvote`);
+      const upvotes = this.state.upvotes + 1;
+      this.setState({ upvotes });
     } catch (err) {
       console.error(err);
     }
@@ -51,13 +59,15 @@ class MovieDetails extends Component {
       let title = this.state.Title;
       //title = title.toLowerCase().replace(' ', '-');
       await axios.post(`/movies/${title}/downvote`);
+      const downvotes = this.state.downvotes + 1;
+      this.setState({ downvotes });
     } catch (err) {
       console.error(err);
     }
   }
 
   render() {
-    const { Title, Year, Director, Plot, Poster } = this.state;
+    const { Title, Year, Director, Plot, Poster, upvotes, downvotes } = this.state;
     return (
       <Layout>
         <h2>{Title} ({Year})</h2>
@@ -67,10 +77,12 @@ class MovieDetails extends Component {
           className="glyphicon glyphicon-thumbs-up"
           onClick={this.upvoteMovie}
         />
+        <div>{upvotes} upvotes</div>
         <i
           className="glyphicon glyphicon-thumbs-down"
           onClick={this.downvoteMovie}
         />
+         <div>{downvotes} downvotes</div>
          <div>{Plot}</div>
         <Link to='/'>Back to movies</Link>
       </Layout>

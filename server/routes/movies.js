@@ -1,6 +1,18 @@
 const router = require('express').Router();
 const { Movie } = require('../db');
 
+router.get('/:title', async (req, res, next) => {
+  try {
+    const title = req.params.title;
+    const [singleMovie, wasCreated] = await Movie.findOrCreate({
+      where: { title }
+    });
+    res.send(singleMovie);
+  } catch (err) {
+    console.error(err);
+  }
+});
+
 // post route for /movies/:title/upvote
 router.post('/:title/upvote', async (req, res, next) => {
   try {
