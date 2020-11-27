@@ -33,8 +33,17 @@ class MovieDetails extends Component {
       const { data } = await axios.request(options);
       const { Title, Year, Director, Plot, Poster } = data;
       const dbResponse = await axios.get(`/movies/${Title}`);
-      console.log(dbResponse.data);
-      const {upvotes, downvotes} = dbResponse.data;
+
+      let upvotes, downvotes;
+      // if the movie hasn't been voted on, set votes to zero
+      if (!dbResponse.data.upvotes) {
+        upvotes = 0;
+        downvotes = 0;
+      } else {
+        // if the movie exists in DB (has votes), set votes to response data
+        upvotes = dbResponse.data.upvotes;
+        downvotes = dbResponse.data.downvotes;
+      }
 
       this.setState({ Title, Year, Director, Plot, Poster, upvotes, downvotes });
     } catch (err) {
@@ -45,7 +54,6 @@ class MovieDetails extends Component {
   upvoteMovie = async () => {
     try {
       let title = this.state.Title;
-      //title = title.toLowerCase().replace(' ', '-');
       await axios.post(`/movies/${title}/upvote`);
       const upvotes = this.state.upvotes + 1;
       this.setState({ upvotes });
@@ -57,7 +65,6 @@ class MovieDetails extends Component {
   downvoteMovie = async () => {
     try {
       let title = this.state.Title;
-      //title = title.toLowerCase().replace(' ', '-');
       await axios.post(`/movies/${title}/downvote`);
       const downvotes = this.state.downvotes + 1;
       this.setState({ downvotes });

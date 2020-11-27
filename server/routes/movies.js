@@ -4,10 +4,15 @@ const { Movie } = require('../db');
 router.get('/:title', async (req, res, next) => {
   try {
     const title = req.params.title;
-    const [singleMovie, wasCreated] = await Movie.findOrCreate({
+    const singleMovie = await Movie.findOne({
       where: { title }
     });
-    res.send(singleMovie);
+
+    if (singleMovie) {
+      res.json(singleMovie);
+    } else {
+      res.sendStatus(200);
+    }
   } catch (err) {
     console.error(err);
   }
