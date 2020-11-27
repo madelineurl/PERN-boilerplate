@@ -4,9 +4,7 @@
     "@babel/env"
     /*
     Babel uses these "presets" to know how to transpile your Javascript code. Here's what we're saying with these:
-
       'react': teaches Babel to recognize JSX - a must have for React!
-
       'env': teaches Babel to transpile Javascript . This preset is highly configurable, and you can reduce the size of your bundle by limiting the number of features you transpile. Learn more here: https://github.com/babel/babel-preset-env
     */
   ],
