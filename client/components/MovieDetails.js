@@ -1,7 +1,8 @@
-import React, { Component } from "react"
-import { Link } from "react-router-dom"
-import Layout from "./Layout"
-import axios from "axios"
+/* eslint-disable no-console */
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import Layout from "./Layout";
+import axios from "axios";
 
 class MovieDetails extends Component {
   constructor() {
@@ -12,8 +13,9 @@ class MovieDetails extends Component {
       Director: '',
       Plot: '',
       Poster: ''
-    }
+    };
   }
+
   async componentDidMount() {
     try {
       const id = this.props.match.params.id;
@@ -26,12 +28,29 @@ class MovieDetails extends Component {
           'x-rapidapi-host': 'movie-database-imdb-alternative.p.rapidapi.com'
         }
       };
-      const response = await axios.request(options)
-      console.log(response.data)
+      const response = await axios.request(options);
       const { Title, Year, Director, Plot, Poster } = response.data;
-      this.setState({
-        Title, Year, Director, Plot, Poster
-      })
+      this.setState({ Title, Year, Director, Plot, Poster });
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  upvoteMovie = async () => {
+    try {
+      let title = this.state.Title;
+      //title = title.toLowerCase().replace(' ', '-');
+      await axios.post(`/movies/${title}/upvote`);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  downvoteMovie = async () => {
+    try {
+      let title = this.state.Title;
+      //title = title.toLowerCase().replace(' ', '-');
+      await axios.post(`/movies/${title}/downvote`);
     } catch (err) {
       console.error(err);
     }
@@ -41,16 +60,21 @@ class MovieDetails extends Component {
     const { Title, Year, Director, Plot, Poster } = this.state;
     return (
       <Layout>
-        <div>{Title}</div>
-        <div>{Year}</div>
-        <div>{Director}</div>
-        <div>{Plot}</div>
+        <h2>{Title} ({Year})</h2>
+        <h4>Directed by {Director}</h4>
         <img src={Poster} alt={`${Title} poster`} />
-        <i className="glyphicon glyphicon-thumbs-up"></i>
-        <i className="glyphicon glyphicon-thumbs-down"></i>
+        <i
+          className="glyphicon glyphicon-thumbs-up"
+          onClick={this.upvoteMovie}
+        />
+        <i
+          className="glyphicon glyphicon-thumbs-down"
+          onClick={this.downvoteMovie}
+        />
+         <div>{Plot}</div>
         <Link to='/'>Back to movies</Link>
       </Layout>
-    )
+    );
   }
 }
 

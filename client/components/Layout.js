@@ -12,7 +12,7 @@ const Layout = ({ children }) => {
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
               </button>
-              <a className="navbar-brand" href="/wiki">movies</a>
+              <a className="navbar-brand" href="/">movies</a>
             </div>
             {/* <div id="nav-items" className="collapse navbar-collapse">
               <ul className="nav navbar-nav">

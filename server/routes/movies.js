@@ -1,10 +1,15 @@
 const router = require('express').Router();
 const { Movie } = require('../db');
 
-// post route for /movies/:title/upvotes
-router.post('/:title/upvotes', async (req, res, next) => {
+// post route for /movies/:title/upvote
+router.post('/:title/upvote', async (req, res, next) => {
   try {
-    const title = req.params.title;
+    let title = req.params.title;
+    // format the title
+    // title = title
+    //   .split('-')
+    //   .map(word => word[0].toUpperCase().concat(word.slice(1)))
+    //   .join(' ');
     // find or create a movie with the title in the DB
     const [singleMovie, wasCreated] = await Movie.findOrCreate({
       where: { title }
@@ -18,10 +23,14 @@ router.post('/:title/upvotes', async (req, res, next) => {
 });
 
 
-// post route for /movies/:title/downvotes downvotes
-router.post('/:title/downvotes', async (req, res, next) => {
+// post route for /movies/:title/downvote
+router.post('/:title/downvote', async (req, res, next) => {
   try {
-    const title = req.params.title;
+    let title = req.params.title;
+    // title = title
+    // .split('-')
+    // .map(word => word[0].toUpperCase().concat(word.slice(1)))
+    // .join(' ');
     const [singleMovie, wasCreated] = await Movie.findOrCreate({
       where: { title }
     });
