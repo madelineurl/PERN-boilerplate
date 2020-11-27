@@ -8,14 +8,18 @@ const Movie = db.define('movie', {
     type: Sequelize.STRING,
     allowNull: false
   },
-  thumbsUp: {
+  upvotes: {
     type: Sequelize.INTEGER,
+    allowNull: false,
+    defaultValue: 0,
     validate: {
       min: 0
     }
   },
-  thumbsDown: {
-    type: Sequelize.STRING,
+  downvotes: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+    defaultValue: 0,
     validate: {
       min: 0
     }
