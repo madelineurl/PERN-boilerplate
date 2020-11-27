@@ -1,3 +1,4 @@
+import React from "react"
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import axios from "axios"
@@ -8,7 +9,7 @@ const Search = () => {
   const [msg, setMsg] = useState('');
 
   const handleChange = (evt) => {
-    setEntry(evt.target.value)
+    setEntry(evt.target.value);
   }
 
   const handleSearch = async (searchVal) => {

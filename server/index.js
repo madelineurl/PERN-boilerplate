@@ -14,6 +14,7 @@ app.use('/movies', require('./routes/movies'));
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.get('*', function (req, res, next) {
+	//console.log('hello from JS!');
   res.sendFile(path.join(__dirname, '..', 'public/index.html'));
 });
 
