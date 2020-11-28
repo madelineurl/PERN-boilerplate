@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Layout from "./Layout";
 import axios from "axios";
+import "../../secrets";
 
 class MovieDetails extends Component {
   constructor() {
@@ -26,7 +27,7 @@ class MovieDetails extends Component {
         url: 'https://movie-database-imdb-alternative.p.rapidapi.com/',
         params: {i: id, r: 'json'},
         headers: {
-          'x-rapidapi-key': '5f3c7b77bbmsh4c423dfece25eebp1257ebjsnb0b535b2cc4e',
+          'x-rapidapi-key': process.env.RAPID_API_KEY,
           'x-rapidapi-host': 'movie-database-imdb-alternative.p.rapidapi.com'
         }
       };
