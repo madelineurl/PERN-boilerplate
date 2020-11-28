@@ -100,7 +100,7 @@ class MovieDetails extends Component {
               'Movie description not available' : Plot
             }
           </div>
-        <Link to='/'>Back to movies</Link>
+        <Link to='/'>Back to search</Link>
       </Layout>
     );
   }
