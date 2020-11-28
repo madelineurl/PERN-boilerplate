@@ -4,4 +4,3 @@ node_modules
 secrets.js
 public/bundle.js
 public/bundle.js.map
-src/index.js
