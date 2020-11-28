@@ -2,5 +2,5 @@ node_modules
 *.log
 .DS_Store
 secrets.js
-public/bundle.js
-public/bundle.js.map
+bundle.js
+bundle.js.map
