@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Movie } = require('../db');
 
-router.get('/:title', async (req, res, next) => {
+router.get('/:title/data', async (req, res, next) => {
   try {
     const title = req.params.title;
     const singleMovie = await Movie.findOne({

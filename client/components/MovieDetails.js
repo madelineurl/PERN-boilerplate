@@ -32,7 +32,7 @@ class MovieDetails extends Component {
       };
       const { data } = await axios.request(options);
       const { Title, Year, Director, Plot, Poster } = data;
-      const dbResponse = await axios.get(`/movies/${Title}`);
+      const dbResponse = await axios.get(`/movies/${Title}/data`);
 
       let upvotes, downvotes;
       // if the movie hasn't been voted on, set votes to zero
