@@ -1,2 +1,2 @@
-## Movie API!
-Welcome to this movie API. More fun functionality to come!
+## Movie Database Search!
+Welcome to this movie searching mini-app. More fun functionality to come!
