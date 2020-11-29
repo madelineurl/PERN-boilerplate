@@ -23,24 +23,28 @@ const Search = () => {
 
   const handleSearch = async (searchVal) => {
     try {
-      const options = {
-        method: 'GET',
-        url: 'https://movie-database-imdb-alternative.p.rapidapi.com/',
-        params: {s: searchVal, page: '1', r: 'json'},
-        headers: {
-          'x-rapidapi-key': process.env.RAPID_API_KEY,
-          'x-rapidapi-host': 'movie-database-imdb-alternative.p.rapidapi.com'
-        }
-      };
-      const response = await axios.request(options);
-      localStorage.removeItem('searchData');
-
-      if (response.data.Response === 'True') {
-        setSearchData(response.data.Search);
-        localStorage.setItem('searchData', JSON.stringify(response.data.Search));
+      if (searchVal === '') {
+        alert('Please enter a search value');
       } else {
-        setSearchData([]);
-        setMsg(response.data.Error);
+        const options = {
+          method: 'GET',
+          url: 'https://movie-database-imdb-alternative.p.rapidapi.com/',
+          params: {s: searchVal, page: '1', r: 'json'},
+          headers: {
+            'x-rapidapi-key': process.env.RAPID_API_KEY,
+            'x-rapidapi-host': 'movie-database-imdb-alternative.p.rapidapi.com'
+          }
+        };
+        const response = await axios.request(options);
+        localStorage.removeItem('searchData');
+
+        if (response.data.Response === 'True') {
+          setSearchData(response.data.Search);
+          localStorage.setItem('searchData', JSON.stringify(response.data.Search));
+        } else {
+          setSearchData([]);
+          setMsg(response.data.Error);
+        }
       }
     } catch (err) {
       console.error(err);

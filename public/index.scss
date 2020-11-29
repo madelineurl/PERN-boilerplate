@@ -17,9 +17,10 @@
       background-color: rgb(226, 230, 240);
     }
     img {
-      height: 300px;
-      width: 250px;
+      height: 17rem;
+      width: 13rem;
       margin-bottom: 1rem;
+      margin-top: .75rem;
     }
   }
 }
@@ -54,5 +55,34 @@
   &:hover{
     text-decoration: none;
     color: rgb(60, 138, 211);
+  }
+}
+
+@media screen and (max-width: 1030px) {
+  .movie-listing{
+    li {
+      width: 45%;
+    }
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .movie-listing{
+    li {
+      width: 100%;
+    }
+  }
+
+  .movie-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color:  rgb(226, 230, 240);
+    border-radius: 5px;
+    box-shadow: 2px grey;
+    div {
+      margin: 1rem;
+      //margin-left: 0;
+    }
   }
 }

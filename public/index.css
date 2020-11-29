@@ -34,9 +34,10 @@
 }
 
 .movie-listing li img {
-  height: 300px;
-  width: 250px;
+  height: 17rem;
+  width: 13rem;
   margin-bottom: 1rem;
+  margin-top: .75rem;
 }
 
 .search {
@@ -74,5 +75,34 @@
 .link:hover {
   text-decoration: none;
   color: #3c8ad3;
+}
+
+@media screen and (max-width: 1030px) {
+  .movie-listing li {
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .movie-listing li {
+    width: 100%;
+  }
+  .movie-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+    background-color: #e2e6f0;
+    border-radius: 5px;
+    -webkit-box-shadow: 2px grey;
+            box-shadow: 2px grey;
+  }
+  .movie-container div {
+    margin: 1rem;
+  }
 }
 /*# sourceMappingURL=index.css.map */
