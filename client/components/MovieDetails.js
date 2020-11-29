@@ -81,26 +81,38 @@ class MovieDetails extends Component {
 
     return (
       <Layout>
-        <h2>{Title} ({Year})</h2>
-        <h4>Directed by {Director}</h4>
-        <img src={Poster} alt={`${Title} poster`} />
-        <i
-          className="fas fa-thumbs-up"
-          onClick={this.upvoteMovie}
-        />
-        <div>{upvotes} upvotes</div>
-        <i
-          className="fas fa-thumbs-down"
-          onClick={this.downvoteMovie}
-        />
-         <div>{downvotes} downvotes</div>
-         <div>
-           {
-              Plot === 'N/A' ?
-              'Movie description not available' : Plot
-            }
+        <div className='movie-container'>
+          <div>
+            <img src={Poster} alt={`${Title} poster`} />
           </div>
-        <Link to='/'>Back to search results</Link>
+          <div className='movie-details'>
+            <h2>{Title} ({Year})</h2>
+            <h5>Directed by {Director}</h5>
+            <div className="votes">
+              <i
+                className="fas fa-thumbs-up"
+                name="thumbs-up"
+                onClick={this.upvoteMovie}
+              />
+              <label htmlFor="thumbs-up">{upvotes}</label>
+            {/* </div>
+            <div> */}
+              <i
+                className="fas fa-thumbs-down"
+                name="thumbs-down"
+                onClick={this.downvoteMovie}
+              />
+              <label htmlFor="thumbs-down">{downvotes}</label>
+            </div>
+            <div>
+            {
+                Plot === 'N/A' ?
+                <em>Movie description not available</em> : <em>{Plot}</em>
+              }
+            </div>
+            <Link to='/'>Back to search results</Link>
+          </div>
+        </div>
       </Layout>
     );
   }
