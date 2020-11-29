@@ -1,0 +1,42 @@
+.movie-listing {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  li {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 32%;
+    list-style: none;
+    text-align: center;
+    margin: .75rem .75rem .75rem 0;
+    background-color: rgb(242, 245, 251);
+    border-radius: 5px;
+    &:hover {
+      background-color: rgb(226, 230, 240);
+    }
+    img {
+      height: 300px;
+      width: 250px;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.search {
+  margin-right: 1rem;
+}
+
+.downvote {
+  width: 100px;
+  height: 100px;
+}
+
+.link {
+  color: rgb(52, 54, 56);
+  &:hover{
+    text-decoration: none;
+    color: rgb(60, 138, 211);
+  }
+}

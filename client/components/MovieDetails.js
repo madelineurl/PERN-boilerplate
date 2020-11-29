@@ -85,12 +85,12 @@ class MovieDetails extends Component {
         <h4>Directed by {Director}</h4>
         <img src={Poster} alt={`${Title} poster`} />
         <i
-          className="glyphicon glyphicon-thumbs-up"
+          className="fas fa-thumbs-up"
           onClick={this.upvoteMovie}
         />
         <div>{upvotes} upvotes</div>
         <i
-          className="glyphicon glyphicon-thumbs-down"
+          className="fas fa-thumbs-down"
           onClick={this.downvoteMovie}
         />
          <div>{downvotes} downvotes</div>
@@ -100,7 +100,7 @@ class MovieDetails extends Component {
               'Movie description not available' : Plot
             }
           </div>
-        <Link to='/'>Back to search</Link>
+        <Link to='/'>Back to search results</Link>
       </Layout>
     );
   }

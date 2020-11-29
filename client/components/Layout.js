@@ -11,7 +11,6 @@ const Layout = ({ children }) => {
         </div>
         </div>
       <hr/>
-      <hr/>
       <div className="container content">
           {children}
       </div>

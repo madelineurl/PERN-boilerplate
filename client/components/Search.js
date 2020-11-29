@@ -53,6 +53,7 @@ const Search = () => {
           type="text"
           name="search"
           onChange={handleChange}
+          className="search"
           value={entry}
           onKeyPress={
             (evt) => {
@@ -71,16 +72,25 @@ const Search = () => {
             Search
         </button>
       </form>
+      <hr/>
       <ul className="list-unstyled movie-listing">
         {
           searchData.length ? (
             searchData.map(movie => (
-              <Link key={movie.imdbID} to={`/movies/${movie.imdbID}`}>
-                <li className='col-3'>
-                  <img src={movie.Poster} alt={`${movie.Title} poster`} />
-                  <div>{movie.Title}</div>
-                </li>
-              </Link>
+              <li key={movie.imdbID} className='card'>
+                <div className='card-body'>
+                  <Link className='link' to={`/movies/${movie.imdbID}`}>
+                    <img
+                      className='card-img-top'
+                      src={movie.Poster}
+                      alt={`${movie.Title} poster`} />
+                    <h4 className='card-title'>
+                      {movie.Title}
+                    </h4>
+                    <h5 className='card-subtitle mb-2 text-muted'>{movie.Year}</h5>
+                </Link>
+                </div>
+              </li>
             ))
           ) : <div>{msg}</div>
         }
