@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -96,7 +97,7 @@ const Search = () => {
         }
         </ul>
     </>
-  )
-}
+  );
+};
 
 export default Search;

@@ -95,8 +95,6 @@ class MovieDetails extends Component {
                 onClick={this.upvoteMovie}
               />
               <label htmlFor="thumbs-up">{upvotes}</label>
-            {/* </div>
-            <div> */}
               <i
                 className="fas fa-thumbs-down"
                 name="thumbs-down"

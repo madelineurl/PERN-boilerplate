@@ -11,6 +11,6 @@ const App = () => {
       <Route exact path='/movies/:id' component={MovieDetails} />
     </Router>
   );
-}
+};
 
 export default App;
