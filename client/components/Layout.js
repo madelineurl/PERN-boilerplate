@@ -15,7 +15,7 @@ const Layout = ({ children }) => {
           {children}
       </div>
       <hr/>
-      <div id="footer" className="container text-muted">
+      <div id="footer" className="container text-muted footer">
         App by Madeline Higgins
       </div>
     </>

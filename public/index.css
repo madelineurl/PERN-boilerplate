@@ -9,6 +9,7 @@
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   width: 100%;
+  margin: 0 auto;
 }
 
 .movie-listing li {
@@ -80,12 +81,14 @@
 @media screen and (max-width: 1030px) {
   .movie-listing li {
     width: 45%;
+    margin: .75rem auto;
   }
 }
 
 @media screen and (max-width: 780px) {
   .movie-listing li {
     width: 100%;
+    margin: .75rem auto;
   }
   .movie-container {
     -webkit-box-orient: vertical;
@@ -103,6 +106,17 @@
   }
   .movie-container div {
     margin: 1rem;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .search {
+    margin-left: 1rem;
+  }
+  .footer {
+    position: fixed;
+    left: 1rem;
+    width: 100%;
   }
 }
 /*# sourceMappingURL=index.css.map */
