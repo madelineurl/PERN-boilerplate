@@ -18,11 +18,13 @@ My Rapid API key has been ignored from github commits for security reasons, so y
 Running npm start is a shortcut for npm run start-dev, which will bundle the frontend with webpack in watch mode and launch the development server on port 8000.
 
 ## Application views
+### Movie Search Page - Desktop:
 ![Movie Search Page (Desktop Browser)](./public/images/movie-search-page_browser.png)
 
-![Movie Search Page (Mobile)](./public/images/movie-search-mobile.png)
+### Movie Search page
+![Movie Search Page (Mobile)](./public/images/movie-search-page_mobile.png)
 
-![Movie Details Page (Desktop Browser)](./public/images/movie-details-page_browser.png)
+![Movie Details Page (Desktop Browser)](./public/images/movie-details_browser.png)
 
 ![Movie Details Page (Mobile)](./public/images/movie-details-page_mobile.png)
 
