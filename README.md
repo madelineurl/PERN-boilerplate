@@ -21,10 +21,12 @@ Running npm start is a shortcut for npm run start-dev, which will bundle the fro
 ### Movie Search Page - Desktop:
 ![Movie Search Page (Desktop Browser)](./public/images/movie-search-page_browser.png)
 
-### Movie Search page
+### Movie Search Oage - Mobile:
 ![Movie Search Page (Mobile)](./public/images/movie-search-page_mobile.png)
 
+### Movie Details Page - Desktop:
 ![Movie Details Page (Desktop Browser)](./public/images/movie-details_browser.png)
 
+### Movie Details Page - Mobile:
 ![Movie Details Page (Mobile)](./public/images/movie-details-page_mobile.png)
 
